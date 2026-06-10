@@ -49,7 +49,6 @@ with open("sowpods.txt", "r") as file:
     for word in file:
         word = word.strip().lower()
 
-        # Check if the word is a palindrome
         if word == word[::-1]:
 
             if len(word) > max_length:

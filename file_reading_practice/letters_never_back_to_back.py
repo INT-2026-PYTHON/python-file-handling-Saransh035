@@ -79,11 +79,9 @@ with open("sowpods.txt", "r") as file:
     for word in file:
         word = word.strip().lower()
 
-        # Add all letters to seen
         for letter in word:
             seen.add(letter)
 
-        # Check for consecutive repeated letters
         for i in range(len(word) - 1):
             if word[i] == word[i + 1]:
                 doubled.add(word[i])
