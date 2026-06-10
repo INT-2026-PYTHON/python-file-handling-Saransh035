@@ -51,5 +51,42 @@ Answer = seen - doubled
 Sorted -> ['b', 'd', 'e', 'h', 'k', 'm', 'n',
            'r', 'u', 'v', 'y']
 =================================================
+seen = set()
+doubled = set()
 
+with open("sowpods.txt", "r") as file:
+    for word in file:
+        word = word.strip().lower()
+
+        # Add all letters to seen
+        for letter in word:
+            seen.add(letter)
+
+        # Check for consecutive repeated letters
+        for i in range(len(word) - 1):
+            if word[i] == word[i + 1]:
+                doubled.add(word[i])
+
+result = sorted(seen - doubled)
+
+print("Letters that never appear back-to-back:")
+print(result)
 """
+seen = set()
+doubled = set()
+
+with open("sowpods.txt", "r") as file:
+    for word in file:
+        word = word.strip().lower()
+
+        for letter in word:
+            seen.add(letter)
+
+        for i in range(len(word) - 1):
+            if word[i] == word[i + 1]:
+                doubled.add(word[i])
+
+result = sorted(seen - doubled)
+
+print("Letters that never appear back-to-back:")
+print(result)
